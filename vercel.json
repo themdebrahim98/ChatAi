@@ -1,0 +1,9 @@
+{
+    "version": 1,
+    "build": {
+        "timeout": 60
+    },
+    "functions": {
+        "maxDuration": 60
+    }
+}

@@ -61,7 +61,7 @@ export default function SloganGenerator() {
           prevChats.map(
             (chat: any, idx: number) =>
               idx != prevChats.length - 1 && (
-                <div className=" rounded-md overflow-auto my-4 text-left bg-black/80 p-5 text-white" key={idx}>
+                <div className=" rounded-md whitespace-pre-wrap my-4 text-left bg-black/80 p-5 text-white overflow-auto flex-wrap " key={idx}>
                   <span className="font-bold text-xl text-orange-400">
                     {chat.role == "assistant" ? "ChatAi" : "You"} :{" "}
                   </span>
