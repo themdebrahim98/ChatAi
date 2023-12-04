@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import fs from "node:fs";
