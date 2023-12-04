@@ -1,4 +1,4 @@
-export const maxDuration = 60;
+export const runtime = "edge";
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import fs from "node:fs";
