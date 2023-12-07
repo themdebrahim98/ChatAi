@@ -17,7 +17,7 @@ export default function SloganGenerator() {
     useChat({
       api: "/api/completion",
       initialMessages: [
-        { role: "assistant", content: "How can i help you ?", id: "5" },
+        { role: "assistant", content: "How can i help you ?", id: "#17#" },
       ],
       onError(error) {
         errorNotify(error.message);
@@ -26,10 +26,11 @@ export default function SloganGenerator() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    console.log(messages);
     setTimeout(() => {
       scrollToBottom(containerRef);
     }, 1000);
-  }, [messages]);
+  }, [messages.length]);
 
   return (
     <div className="px-8 py-5 flex flex-col  max-w-5xl w-full ring-slate-900 ring-1 rounded-md flex-1">
@@ -42,17 +43,22 @@ export default function SloganGenerator() {
           <BubbleMessage content={m.content} role={m.role} key={idx} />
         ))}
       </section>
+
       <section
         id="bottomInput"
-        className=" p-4 fixed bottom-5 left-5 right-5 flex justify-center mx-auto"
+        className=" p-4 fixed bottom-1 left-5 right-5 flex justify-center mx-auto"
       >
-        <form onSubmit={handleSubmit} className="w-full mx-auto max-w-4xl ">
-          <div className="flex items-stretch  rounded-sm overflow-hidden  mb-11">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full mx-auto max-w-4xl items-center "
+        >
+          <div className="flex items-stretch justify-center  rounded-sm overflow-hidden m-0">
             <textarea
               className="flex-1  text-left p-3 resize-none border-none rounded-l-full shadow-md py-4 px-4 dark:text-black focus:outline-none"
               value={input}
               onChange={handleInputChange}
               placeholder="Type your message..."
+              rows={1}
             />
             <button
               disabled={isLoading}
