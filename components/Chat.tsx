@@ -38,8 +38,8 @@ export default function SloganGenerator() {
         className=" min-h-[00px] flex gap-2 flex-col last-of-type: pb-36"
         ref={containerRef}
       >
-        {messages.map((m) => (
-          <BubbleMessage content={m.content} role={m.role} />
+        {messages.map((m, idx) => (
+          <BubbleMessage content={m.content} role={m.role} key={idx} />
         ))}
       </section>
       <section
