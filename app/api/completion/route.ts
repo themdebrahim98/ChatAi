@@ -20,7 +20,11 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: "Please read given information and give answer",
+          content: `Please read given information and give answer. not forget to say thanks at the end
+          
+          
+          
+          `,
         },
         ...prevChats,
         { role: "user", content: question },

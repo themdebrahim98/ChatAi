@@ -26,11 +26,10 @@ export default function SloganGenerator() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    console.log(messages);
-    setTimeout(() => {
+    if (messages.length > 1) {
       scrollToBottom(containerRef);
-    }, 1000);
-  }, [messages.length]);
+    }
+  }, [messages]);
 
   return (
     <div className="px-8 py-5 flex flex-col  max-w-5xl w-full ring-slate-900 ring-1 rounded-md flex-1">
