@@ -8,16 +8,27 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: Request) {
-  const { prompt, chatHistory } = await req.json();
+  const body = await req.json();
+  const messages = body.messages || [];
+  const prevChats = messages.slice(0, -1);
+  const question = messages[messages.length - 1].content;
 
-  // Ask OpenAI for a streaming completion given the prompt
+  // // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.chat.completions.create({
     model: "gpt-4",
     stream: true,
-    messages: [...chatHistory, { role: "user", content: prompt }],
+    messages: [
+      {
+        role: "system",
+        content: "Please read given information and give answer",
+      },
+      ...prevChats,
+      { role: "user", content: question },
+    ],
   });
-  // Convert the response into a friendly text-stream
+  // // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
-  // Respond with the stream
-  return new Response(stream, { status: 200 });
+  // // Respond with the stream
+  return new StreamingTextResponse(stream);
+  // return Response.json("from server");
 }

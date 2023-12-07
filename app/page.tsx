@@ -1,9 +1,13 @@
-import Image from 'next/image'
-import Chat from '@/components/Chat'
+import Image from "next/image";
+import Chat from "@/components/Chat";
+import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col mx-auto max-w-4xl justify-between">
-      <Chat />
+    <main className=" bg-slate-800 min-h-screen min-w-screen flex flex-col">
+      <Navbar />
+      <div className="flex justify-center mt-28 flex-1 ">
+        <Chat />
+      </div>
     </main>
-  )
+  );
 }
