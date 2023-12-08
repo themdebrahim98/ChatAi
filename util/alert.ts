@@ -10,7 +10,7 @@ const copyNotify = () => {
   });
 };
 const errorNotify = (err: string) =>
-  toast.error(err, {
+  toast.error("Something went wrong!", {
     position: toast.POSITION.TOP_RIGHT,
   });
 

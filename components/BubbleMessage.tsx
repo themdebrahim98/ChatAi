@@ -12,16 +12,18 @@ function BubbleMessage({ content, role }: any) {
     copy(content) ? copyNotify() : errorNotify("Not coppied!");
   };
   return (
-    <div className={`flex w-full  ${alignmentClass}`}>
+    <div className={`flex w-full  ${alignmentClass} last-of-type:pb-[100px] `}>
       <ToastContainer />
       <div
-        onClick={() => {
-          handleCopy();
-        }}
         className={`rounded-lg py-2 px-16 max-w-full break-words ${bubbleColorClass} relative`}
       >
-        <div className="absolute top-1 right-2 cursor-pointer text-md rounded-full bg-gray-300 hover:bg-gray-400 p-1">
-          <AiOutlineCopy className="text-gray-600" />
+        <div className="absolute top-1 right-2 cursor-pointer text-md rounded-full bg-gray-300 hover:bg-gray-400 p-2 ">
+          <AiOutlineCopy
+            className="text-gray-600"
+            onClick={() => {
+              handleCopy();
+            }}
+          />
         </div>
         <p className="whitespace-pre-wrap">{content}</p>
       </div>

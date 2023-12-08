@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+@layer components {
+  /* Define custom scrollbar styles */
+  /* For WebKit browsers */
+  ::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 45px; /* Width of the scrollbar thumb */
+  }
+}
